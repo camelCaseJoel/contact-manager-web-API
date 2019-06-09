@@ -1,22 +1,22 @@
 import { Config } from './Config';
+import { Controller } from './controller/Controller';
 import * as http from 'http';
 
 class Server {
-    config: Config;
+    private port: number;
+    private host: string;
+    private config: Config;
+    private controller: Controller;
 
     constructor ( config: Config ) {
         this.config = config;
+        this.port = config.port;
+        this.host = config.host;
+        this.controller = new Controller;
     }
 
-    start () {
-        const server = http.createServer(( req, res ) => {
-            res.writeHead(200, { "Content-type": "text/plain" });
-            res.end("<ul><li>una...</li><li>cosa...</li><li>loca...</li></ul>");
-        });
-        server.listen( this.config.port, () => {
-            console.log( 'running at port: ' + this.config.port );
-        });
-
+    public start (): void {
+        http.createServer( this.controller.handleRequest ).listen( this.port );
     }
 }
 
