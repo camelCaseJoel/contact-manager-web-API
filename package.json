@@ -16,5 +16,8 @@
     "web"
   ],
   "author": "Joel Rivera",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "typescript": "^3.5.1"
+  }
 }
