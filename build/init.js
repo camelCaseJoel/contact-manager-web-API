@@ -7,7 +7,7 @@ var Init = /** @class */ (function () {
     }
     Init.start = function () {
         var config = new Config_1.Config();
-        var server = new Server_1.Server(config.get());
+        var server = new Server_1.Server(config);
         server.start();
     };
     return Init;

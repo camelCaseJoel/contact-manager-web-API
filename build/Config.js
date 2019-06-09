@@ -2,13 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var Config = /** @class */ (function () {
     function Config() {
+        this.host = 'localhost';
+        this.port = 3000;
     }
-    Config.prototype.get = function () {
-        return {
-            host: 'localhost',
-            port: '3000'
-        };
-    };
     return Config;
 }());
 exports.Config = Config;

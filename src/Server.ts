@@ -1,4 +1,5 @@
-import { Config } from './config';
+import { Config } from './Config';
+import * as http from 'http';
 
 class Server {
     config: Config;
@@ -8,8 +9,14 @@ class Server {
     }
 
     start () {
-        console.log('this is the configuration: ')
-        console.log( this.config );
+        const server = http.createServer(( req, res ) => {
+            res.writeHead(200, { "Content-type": "text/plain" });
+            res.end("<ul><li>una...</li><li>cosa...</li><li>loca...</li></ul>");
+        });
+        server.listen( this.config.port, () => {
+            console.log( 'running at port: ' + this.config.port );
+        });
+
     }
 }
 
