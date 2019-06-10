@@ -4,15 +4,24 @@ var DBConnection_1 = require("./DBConnection");
 var Contact = /** @class */ (function () {
     function Contact() {
     }
-    Contact.getContacts = function (handler) {
+    Contact.getAll = function (handler) {
         var conn = DBConnection_1.DBConnection.createConnection();
         conn.connect();
         conn.query('SELECT * from contacts', handler);
         conn.end();
     };
-    Contact.createContact = function () {
+    Contact.create = function (handler, data) {
+        var conn = DBConnection_1.DBConnection.createConnection();
+        var sqlQ = 'INSERT INTO contacts (firstname,lastname,email) VALUES(?,?,?)';
+        conn.connect();
+        conn.query(sqlQ, [data.firstname, data.lastname, data.email], handler);
+        conn.end();
     };
-    Contact.deleteContact = function () {
+    Contact.delete = function (handler) {
+        // const conn = DBConnection.createConnection();
+        // conn.connect();
+        // conn.query( 'SELECT * from contacts', handler );
+        // conn.end(); 
     };
     return Contact;
 }());
