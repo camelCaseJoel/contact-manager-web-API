@@ -18,7 +18,14 @@ var Handler = /** @class */ (function () {
         return false;
     };
     Handler.getUI = function (req, res) {
-        var data = fs.readFileSync('./client/index.html');
+        var data;
+        try {
+            data = fs.readFileSync('./client/index.html');
+        }
+        catch (err) {
+            res.writeHead(500, { 'Content-Type': 'text/html' });
+            res.end('<h1>Error reading file</h1>', 'utf-8');
+        }
         res.writeHead(200, { 'Content-Type': 'text/html' });
         res.end(data, 'utf-8');
     };
