@@ -36,8 +36,8 @@ class Controller{
         
         
         // Route didn't match
-        res.writeHead(404, { 'Content-Type': 'text/html' });
-        res.end('<h1>This route is NOT definedx</h1>');
+        // res.writeHead(404, { 'Content-Type': 'text/html' });
+        // res.end('<h1>This route is NOT definedx</h1>');
 
     }
 

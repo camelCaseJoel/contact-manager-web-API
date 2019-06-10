@@ -18,16 +18,9 @@ var Handler = /** @class */ (function () {
         return false;
     };
     Handler.getUI = function (req, res) {
-        fs.readFile('/../src/client/index.html', function (e, content) {
-            if (e) {
-                console.log('ERRORRRRR !!!!!');
-                console.log(e);
-            }
-            else {
-                res.writeHead(200, { 'Content-Type': 'text/html' });
-                res.end(content, 'utf-8');
-            }
-        });
+        var data = fs.readFileSync('./client/index.html');
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end(data, 'utf-8');
     };
     Handler.getContacts = function (req, res) {
     };

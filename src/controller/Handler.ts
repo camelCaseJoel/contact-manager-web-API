@@ -19,15 +19,10 @@ class Handler {
     }
 
     static getUI ( req: any, res: any ) {
-        fs.readFile('/../src/client/index.html', (e, content) => {
-            if (e) {
-                console.log('ERRORRRRR !!!!!');
-                console.log( e );
-            }else{
-                res.writeHead(200, { 'Content-Type': 'text/html' });
-                res.end(content, 'utf-8');
-            }
-        });
+        const data = fs.readFileSync('./client/index.html');
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end(data, 'utf-8');
+        
 
     }
     static getContacts ( req: any, res: any ) {
