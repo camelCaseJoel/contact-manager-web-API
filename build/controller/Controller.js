@@ -25,6 +25,11 @@ var Controller = /** @class */ (function () {
             path: '/api/contact'
         }))
             Handler_1.handler.deleteContact(req, res);
+        if (Handler_1.handler.match(req, res, {
+            verb: 'POST',
+            path: '/api/phone'
+        }))
+            Handler_1.handler.addPhone(req, res);
         // Routes didn't match
         // res.writeHead(404, { 'Content-Type': 'text/html' });
         // res.end('<h1>This route is NOT definedx</h1>');

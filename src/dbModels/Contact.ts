@@ -21,6 +21,13 @@ class Contact {
         conn.query( sqlQ,[data.id], handler );
         conn.end();
     }
+    public static addPhone ( handler, data ) {
+        const conn = DBConnection.createConnection();
+        const sqlQ = 'INSERT INTO phones (contact_id,phone) VALUES(?,?)';
+        conn.connect();
+        conn.query( sqlQ,[data.contact_id, data.phone], handler );
+        conn.end();
+    }
     
 }
 

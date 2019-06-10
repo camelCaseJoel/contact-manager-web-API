@@ -24,6 +24,13 @@ var Contact = /** @class */ (function () {
         conn.query(sqlQ, [data.id], handler);
         conn.end();
     };
+    Contact.addPhone = function (handler, data) {
+        var conn = DBConnection_1.DBConnection.createConnection();
+        var sqlQ = 'INSERT INTO phones (contact_id,phone) VALUES(?,?)';
+        conn.connect();
+        conn.query(sqlQ, [data.contact_id, data.phone], handler);
+        conn.end();
+    };
     return Contact;
 }());
 exports.Contact = Contact;
