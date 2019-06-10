@@ -24,12 +24,6 @@ class Controller{
 
 
         if (handler.match( req, res, {
-            verb: 'PATCH',
-            path: '/api/contact'
-        })) handler.updateContact(req, res);
-
-
-        if (handler.match( req, res, {
             verb: 'DELETE',
             path: '/api/contact'
         })) handler.deleteContact(req, res);

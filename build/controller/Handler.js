@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var Contact_1 = require("../dbModels/Contact");
 var fs = require("fs");
 var Handler = /** @class */ (function () {
     function Handler() {
@@ -13,10 +14,9 @@ var Handler = /** @class */ (function () {
         return false;
     };
     Handler.getContacts = function (req, res) {
+        Contact_1.Contact.getContacts();
     };
     Handler.createContact = function (req, res) {
-    };
-    Handler.updateContact = function (req, res) {
     };
     Handler.deleteContact = function (req, res) {
     };

@@ -7,8 +7,7 @@ var Config = /** @class */ (function () {
         this.port = 3000;
         // database
         this.dbHost = 'localhost';
-        this.dbPort = 3636;
-        this.dbName = 'contact_manager';
+        this.dbName = 'contacts_app';
         this.dbUser = 'joel';
         this.dbPass = 'password';
     }

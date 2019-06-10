@@ -21,11 +21,6 @@ var Controller = /** @class */ (function () {
         }))
             Handler_1.handler.createContact(req, res);
         if (Handler_1.handler.match(req, res, {
-            verb: 'PATCH',
-            path: '/api/contact'
-        }))
-            Handler_1.handler.updateContact(req, res);
-        if (Handler_1.handler.match(req, res, {
             verb: 'DELETE',
             path: '/api/contact'
         }))

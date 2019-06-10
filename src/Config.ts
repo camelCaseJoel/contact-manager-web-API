@@ -5,8 +5,7 @@ class Config {
     
     // database
     public dbHost: string = 'localhost';
-    public dbPort: number = 3636;
-    public dbName: string = 'contact_manager';
+    public dbName: string = 'contacts_app';
     public dbUser: string = 'joel';
     public dbPass: string = 'password';
 }

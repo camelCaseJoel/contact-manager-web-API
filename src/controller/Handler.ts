@@ -1,4 +1,5 @@
 import { Route } from '../types';
+import { Contact } from '../dbModels/Contact';
 import * as fs from 'fs';
 
 class Handler {
@@ -10,16 +11,12 @@ class Handler {
         if ( pathMatched && verbMatched ) return true;
         return false;
     }
-    
-    static getContacts ( req: any, res: any ) {
 
+    static getContacts ( req: any, res: any ) {
+        Contact.getContacts();
     }
 
     static createContact ( req: any, res: any ) {
-
-    }
-
-    static updateContact ( req: any, res: any ) {
 
     }
 
