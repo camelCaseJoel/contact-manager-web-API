@@ -17,11 +17,12 @@ var Contact = /** @class */ (function () {
         conn.query(sqlQ, [data.firstname, data.lastname, data.email], handler);
         conn.end();
     };
-    Contact.delete = function (handler) {
-        // const conn = DBConnection.createConnection();
-        // conn.connect();
-        // conn.query( 'SELECT * from contacts', handler );
-        // conn.end(); 
+    Contact.delete = function (handler, data) {
+        var conn = DBConnection_1.DBConnection.createConnection();
+        var sqlQ = 'DELETE FROM contacts WHERE id = ?';
+        conn.connect();
+        conn.query(sqlQ, [data.id], handler);
+        conn.end();
     };
     return Contact;
 }());

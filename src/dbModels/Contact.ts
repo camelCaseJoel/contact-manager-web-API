@@ -14,11 +14,12 @@ class Contact {
         conn.query( sqlQ,[data.firstname, data.lastname, data.email], handler );
         conn.end();
     }
-    public static delete ( handler ) {
-        // const conn = DBConnection.createConnection();
-        // conn.connect();
-        // conn.query( 'SELECT * from contacts', handler );
-        // conn.end(); 
+    public static delete ( handler, data ) {
+        const conn = DBConnection.createConnection();
+        const sqlQ = 'DELETE FROM contacts WHERE id = ?';
+        conn.connect();
+        conn.query( sqlQ,[data.id], handler );
+        conn.end();
     }
     
 }
