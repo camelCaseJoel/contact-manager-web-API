@@ -26,7 +26,7 @@ class Controller{
         if (handler.match( req, res, {
             verb: 'PATCH',
             path: '/api/contact'
-        })) handler.updteContact(req, res);
+        })) handler.updateContact(req, res);
 
 
         if (handler.match( req, res, {

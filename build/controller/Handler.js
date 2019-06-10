@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var fs = require("fs");
 var Handler = /** @class */ (function () {
     function Handler() {
     }
@@ -17,8 +18,16 @@ var Handler = /** @class */ (function () {
         return false;
     };
     Handler.getUI = function (req, res) {
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.end('<h1>Home</h1><ul><li>1</li><li>2</li><li>3</li></ul>', 'utf-8');
+        fs.readFile('/../src/client/index.html', function (e, content) {
+            if (e) {
+                console.log('ERRORRRRR !!!!!');
+                console.log(e);
+            }
+            else {
+                res.writeHead(200, { 'Content-Type': 'text/html' });
+                res.end(content, 'utf-8');
+            }
+        });
     };
     Handler.getContacts = function (req, res) {
     };

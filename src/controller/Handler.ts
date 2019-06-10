@@ -1,4 +1,5 @@
 import { Route } from '../types';
+import * as fs from 'fs';
 
 class Handler {
     // check request
@@ -16,9 +17,18 @@ class Handler {
         if ( pathMatched && verbMatched ) return true;
         return false;
     }
+
     static getUI ( req: any, res: any ) {
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.end('<h1>Home</h1><ul><li>1</li><li>2</li><li>3</li></ul>', 'utf-8');
+        fs.readFile('/../src/client/index.html', (e, content) => {
+            if (e) {
+                console.log('ERRORRRRR !!!!!');
+                console.log( e );
+            }else{
+                res.writeHead(200, { 'Content-Type': 'text/html' });
+                res.end(content, 'utf-8');
+            }
+        });
+
     }
     static getContacts ( req: any, res: any ) {
 
