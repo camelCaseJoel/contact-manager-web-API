@@ -13,7 +13,16 @@ class Handler {
     }
 
     static getContacts ( req: any, res: any ) {
-        Contact.getContacts();
+        const handler = (error, results, fields) => {
+            if (error) throw error;
+            console.log( 'The solution is: ', results );
+            const stringResult = JSON.stringify( results );
+
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(stringResult, 'utf-8');
+        };
+
+        Contact.getContacts( handler );
     }
 
     static createContact ( req: any, res: any ) {

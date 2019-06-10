@@ -26,8 +26,8 @@ var Controller = /** @class */ (function () {
         }))
             Handler_1.handler.deleteContact(req, res);
         // Routes didn't match
-        res.writeHead(404, { 'Content-Type': 'text/html' });
-        res.end('<h1>This route is NOT definedx</h1>');
+        // res.writeHead(404, { 'Content-Type': 'text/html' });
+        // res.end('<h1>This route is NOT definedx</h1>');
     };
     return Controller;
 }());

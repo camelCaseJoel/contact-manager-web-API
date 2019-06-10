@@ -14,7 +14,15 @@ var Handler = /** @class */ (function () {
         return false;
     };
     Handler.getContacts = function (req, res) {
-        Contact_1.Contact.getContacts();
+        var handler = function (error, results, fields) {
+            if (error)
+                throw error;
+            console.log('The solution is: ', results);
+            var stringResult = JSON.stringify(results);
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(stringResult, 'utf-8');
+        };
+        Contact_1.Contact.getContacts(handler);
     };
     Handler.createContact = function (req, res) {
     };

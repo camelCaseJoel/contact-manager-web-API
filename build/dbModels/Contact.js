@@ -4,14 +4,10 @@ var DBConnection_1 = require("./DBConnection");
 var Contact = /** @class */ (function () {
     function Contact() {
     }
-    Contact.getContacts = function () {
+    Contact.getContacts = function (handler) {
         var conn = DBConnection_1.DBConnection.createConnection();
         conn.connect();
-        conn.query('SELECT * from contacts', function (error, results, fields) {
-            if (error)
-                throw error;
-            console.log('The solution is: ', results);
-        });
+        conn.query('SELECT * from contacts', handler);
         conn.end();
     };
     Contact.createContact = function () {
