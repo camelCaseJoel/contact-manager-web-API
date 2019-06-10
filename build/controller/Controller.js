@@ -30,27 +30,9 @@ var Controller = /** @class */ (function () {
             path: '/api/contact'
         }))
             Handler_1.handler.deleteContact(req, res);
-        // Route didn't match
+        // Routes didn't match
         res.writeHead(404, { 'Content-Type': 'text/html' });
         res.end('<h1>This route is NOT definedx</h1>');
-    };
-    // Handlers:
-    Controller.prototype.getUI = function (req, res) {
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.end('<h1>Home</h1><p>Some info here...</p>', 'utf-8');
-    };
-    Controller.prototype.getContacts = function (req, res) {
-    };
-    ;
-    Controller.prototype.createContact = function (req, res) {
-    };
-    ;
-    Controller.prototype.modifyContact = function (req, res) {
-    };
-    Controller.prototype.deleteContact = function (req, res) {
-    };
-    Controller.prototype.test = function () {
-        console.log('edfdjjkcjkrxedkeidixxies');
     };
     return Controller;
 }());

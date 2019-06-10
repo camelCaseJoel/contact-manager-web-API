@@ -4,15 +4,8 @@ import * as fs from 'fs';
 class Handler {
     // check request
     static match ( req: any, res: any, route: Route ) {
-        console.log( 'req method: ' + req.method );
-        console.log( 'req url: ' + req.url );
-
         const pathMatched: boolean = ( req.url == route.path );
         const verbMatched: boolean = ( req.method == route.verb );
-
-        console.log(`pathmatched: ${pathMatched}`);
-        console.log(`verbmatched: ${verbMatched}`);
-        console.log('---------------------------');
         
         if ( pathMatched && verbMatched ) return true;
         return false;

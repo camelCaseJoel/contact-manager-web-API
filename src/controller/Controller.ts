@@ -35,32 +35,12 @@ class Controller{
         })) handler.deleteContact(req, res);
         
         
-        // Route didn't match
+        // Routes didn't match
         res.writeHead(404, { 'Content-Type': 'text/html' });
         res.end('<h1>This route is NOT definedx</h1>');
 
     }
 
-    // Handlers:
-    public getUI ( req: any, res: any ) {
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-        res.end('<h1>Home</h1><p>Some info here...</p>', 'utf-8');
-    }
-    public getContacts( req: any, res: any ) {
-
-    };
-    public createContact( req: any, res: any ) {
-
-    };
-    public modifyContact( req: any, res: any ) {
-
-    }
-    public deleteContact( req: any, res: any ) {
-
-    }
-    public test() {
-        console.log('edfdjjkcjkrxedkeidixxies');
-    }
     
 }
 
