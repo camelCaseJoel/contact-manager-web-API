@@ -1,22 +1,46 @@
-import { u } from './Utils';
+import { handler } from './Handler';
 import { Contact } from './../dbModels/Contact';
+import { Phone   } from './../dbModels/Phone';
+
 
 class Controller{
     public handleRequest (req: any, res: any): void {
-        u.match( req, {
+        if (handler.match( req, res, {
             verb: 'GET',
-            path: '/',
-            handler: this.getUI
-        });
+            path: '/'
+        })) handler.getUI(req, res);
         
 
-    }
-    private getUI () {
         
+
+        
+        
+        // Route didn't match
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end('<h1>This route is NOT definedx</h1>');
+
     }
-    private getContacts() {
+
+    // Handlers:
+    public getUI ( req: any, res: any ) {
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end('<h1>Home</h1><p>Some info here...</p>', 'utf-8');
+    }
+    public getContacts( req: any, res: any ) {
 
     };
+    public createContact( req: any, res: any ) {
+
+    };
+    public modifyContact( req: any, res: any ) {
+
+    }
+    public deleteContact( req: any, res: any ) {
+
+    }
+    public test() {
+        console.log('edfdjjkcjkrxedkeidixxies');
+    }
     
 }
 

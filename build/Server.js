@@ -11,6 +11,7 @@ var Server = /** @class */ (function () {
     }
     Server.prototype.start = function () {
         http.createServer(this.controller.handleRequest).listen(this.port);
+        console.log('Server running at:' + this.port);
     };
     return Server;
 }());

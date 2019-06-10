@@ -1,21 +1,37 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Utils_1 = require("./Utils");
+var Handler_1 = require("./Handler");
 var Controller = /** @class */ (function () {
     function Controller() {
     }
     Controller.prototype.handleRequest = function (req, res) {
-        Utils_1.u.match(req, {
+        if (Handler_1.handler.match(req, res, {
             verb: 'GET',
-            path: '/',
-            handler: this.getUI
-        });
+            path: '/'
+        }))
+            Handler_1.handler.getUI(req, res);
+        // Route didn't match
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end('<h1>This route is NOT definedx</h1>');
     };
-    Controller.prototype.getUI = function () {
+    // Handlers:
+    Controller.prototype.getUI = function (req, res) {
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.end('<h1>Home</h1><p>Some info here...</p>', 'utf-8');
     };
-    Controller.prototype.getContacts = function () {
+    Controller.prototype.getContacts = function (req, res) {
     };
     ;
+    Controller.prototype.createContact = function (req, res) {
+    };
+    ;
+    Controller.prototype.modifyContact = function (req, res) {
+    };
+    Controller.prototype.deleteContact = function (req, res) {
+    };
+    Controller.prototype.test = function () {
+        console.log('edfdjjkcjkrxedkeidixxies');
+    };
     return Controller;
 }());
 exports.Controller = Controller;

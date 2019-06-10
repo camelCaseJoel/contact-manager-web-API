@@ -17,6 +17,7 @@ class Server {
 
     public start (): void {
         http.createServer( this.controller.handleRequest ).listen( this.port );
+        console.log( 'Server running at:' + this.port );
     }
 }
 
