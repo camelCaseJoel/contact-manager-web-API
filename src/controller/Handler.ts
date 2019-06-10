@@ -10,6 +10,22 @@ class Handler {
         if ( pathMatched && verbMatched ) return true;
         return false;
     }
+    
+    static getContacts ( req: any, res: any ) {
+
+    }
+
+    static createContact ( req: any, res: any ) {
+
+    }
+
+    static updateContact ( req: any, res: any ) {
+
+    }
+
+    static deleteContact ( req: any, res: any ) {
+
+    }
 
     static getUI ( req: any, res: any ) {
         
@@ -24,18 +40,7 @@ class Handler {
         res.end(data, 'utf-8');
 
     }
-    static getContacts ( req: any, res: any ) {
-
-    }
-    static createContact ( req: any, res: any ) {
-
-    }
-    static updateContact ( req: any, res: any ) {
-
-    }
-    static deleteContact ( req: any, res: any ) {
-
-    }
+    
 }
 
 export { Handler as handler };

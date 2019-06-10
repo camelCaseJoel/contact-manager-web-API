@@ -12,6 +12,14 @@ var Handler = /** @class */ (function () {
             return true;
         return false;
     };
+    Handler.getContacts = function (req, res) {
+    };
+    Handler.createContact = function (req, res) {
+    };
+    Handler.updateContact = function (req, res) {
+    };
+    Handler.deleteContact = function (req, res) {
+    };
     Handler.getUI = function (req, res) {
         var data;
         try {
@@ -23,14 +31,6 @@ var Handler = /** @class */ (function () {
         }
         res.writeHead(200, { 'Content-Type': 'text/html' });
         res.end(data, 'utf-8');
-    };
-    Handler.getContacts = function (req, res) {
-    };
-    Handler.createContact = function (req, res) {
-    };
-    Handler.updateContact = function (req, res) {
-    };
-    Handler.deleteContact = function (req, res) {
     };
     return Handler;
 }());
