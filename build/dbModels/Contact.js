@@ -6,8 +6,9 @@ var Contact = /** @class */ (function () {
     }
     Contact.getAll = function (handler) {
         var conn = DBConnection_1.DBConnection.createConnection();
+        var sqlQ = 'SELECT * from contacts';
         conn.connect();
-        conn.query('SELECT * from contacts', handler);
+        conn.query(sqlQ, handler);
         conn.end();
     };
     Contact.create = function (handler, data) {

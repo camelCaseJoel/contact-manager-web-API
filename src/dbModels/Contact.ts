@@ -3,8 +3,9 @@ import { DBConnection } from './DBConnection';
 class Contact {
     public static getAll ( handler ) {
         const conn = DBConnection.createConnection();
+        const sqlQ = 'SELECT * from contacts';
         conn.connect();
-        conn.query( 'SELECT * from contacts', handler );
+        conn.query( sqlQ, handler );
         conn.end(); 
     }
     public static create ( handler, data ) {
