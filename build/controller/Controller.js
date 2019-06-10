@@ -10,8 +10,28 @@ var Controller = /** @class */ (function () {
             path: '/'
         }))
             Handler_1.handler.getUI(req, res);
+        if (Handler_1.handler.match(req, res, {
+            verb: 'GET',
+            path: '/api/contact'
+        }))
+            Handler_1.handler.getContacts(req, res);
+        if (Handler_1.handler.match(req, res, {
+            verb: 'POST',
+            path: '/api/contact'
+        }))
+            Handler_1.handler.createContact(req, res);
+        if (Handler_1.handler.match(req, res, {
+            verb: 'PATCH',
+            path: '/api/contact'
+        }))
+            Handler_1.handler.updteContact(req, res);
+        if (Handler_1.handler.match(req, res, {
+            verb: 'DELETE',
+            path: '/api/contact'
+        }))
+            Handler_1.handler.deleteContact(req, res);
         // Route didn't match
-        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.writeHead(404, { 'Content-Type': 'text/html' });
         res.end('<h1>This route is NOT definedx</h1>');
     };
     // Handlers:

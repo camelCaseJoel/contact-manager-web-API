@@ -20,6 +20,18 @@ class Handler {
         res.writeHead(200, { 'Content-Type': 'text/html' });
         res.end('<h1>Home</h1><ul><li>1</li><li>2</li><li>3</li></ul>', 'utf-8');
     }
+    static getContacts ( req: any, res: any ) {
+
+    }
+    static createContact ( req: any, res: any ) {
+
+    }
+    static updateContact ( req: any, res: any ) {
+
+    }
+    static deleteContact ( req: any, res: any ) {
+
+    }
 }
 
 export { Handler as handler };

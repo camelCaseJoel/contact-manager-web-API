@@ -20,6 +20,14 @@ var Handler = /** @class */ (function () {
         res.writeHead(200, { 'Content-Type': 'text/html' });
         res.end('<h1>Home</h1><ul><li>1</li><li>2</li><li>3</li></ul>', 'utf-8');
     };
+    Handler.getContacts = function (req, res) {
+    };
+    Handler.createContact = function (req, res) {
+    };
+    Handler.updateContact = function (req, res) {
+    };
+    Handler.deleteContact = function (req, res) {
+    };
     return Handler;
 }());
 exports.handler = Handler;

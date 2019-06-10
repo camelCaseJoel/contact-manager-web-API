@@ -9,14 +9,34 @@ class Controller{
             verb: 'GET',
             path: '/'
         })) handler.getUI(req, res);
-        
 
-        
 
+        if (handler.match( req, res, {
+            verb: 'GET',
+            path: '/api/contact'
+        })) handler.getContacts(req, res);
+
+
+        if (handler.match( req, res, {
+            verb: 'POST',
+            path: '/api/contact'
+        })) handler.createContact(req, res);
+
+
+        if (handler.match( req, res, {
+            verb: 'PATCH',
+            path: '/api/contact'
+        })) handler.updteContact(req, res);
+
+
+        if (handler.match( req, res, {
+            verb: 'DELETE',
+            path: '/api/contact'
+        })) handler.deleteContact(req, res);
         
         
         // Route didn't match
-        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.writeHead(404, { 'Content-Type': 'text/html' });
         res.end('<h1>This route is NOT definedx</h1>');
 
     }
