@@ -28,10 +28,17 @@ class Controller{
             path: '/api/contact'
         })) handler.deleteContact(req, res);
         
+
         if (handler.match( req, res, {
             verb: 'POST',
             path: '/api/phone'
         })) handler.addPhone(req, res);
+
+
+        if (handler.match( req, res, {
+            verb: 'GET',
+            path: '/api/phone'
+        })) handler.getPhones(req, res);
         
         // Routes didn't match
         // res.writeHead(404, { 'Content-Type': 'text/html' });

@@ -78,6 +78,24 @@ var Handler = /** @class */ (function () {
             Contact_1.Contact.addPhone(handler, dataObject);
         });
     };
+    Handler.getPhones = function (req, res) {
+        var handler = function (error, results, fields) {
+            if (error)
+                throw error;
+            console.log('The result is: ', results);
+            var stringResult = JSON.stringify(results);
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(stringResult, 'utf-8');
+        };
+        var postBody = '';
+        req.on('data', function (chunk) {
+            postBody += chunk.toString();
+        });
+        req.on('end', function () {
+            var dataObject = JSON.parse(postBody);
+            Contact_1.Contact.getPhones(handler, dataObject);
+        });
+    };
     Handler.getUI = function (req, res) {
         var data;
         try {

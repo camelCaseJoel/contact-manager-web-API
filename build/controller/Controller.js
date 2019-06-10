@@ -30,6 +30,11 @@ var Controller = /** @class */ (function () {
             path: '/api/phone'
         }))
             Handler_1.handler.addPhone(req, res);
+        if (Handler_1.handler.match(req, res, {
+            verb: 'GET',
+            path: '/api/phone'
+        }))
+            Handler_1.handler.getPhones(req, res);
         // Routes didn't match
         // res.writeHead(404, { 'Content-Type': 'text/html' });
         // res.end('<h1>This route is NOT definedx</h1>');

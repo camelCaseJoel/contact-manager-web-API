@@ -32,6 +32,13 @@ var Contact = /** @class */ (function () {
         conn.query(sqlQ, [data.contact_id, data.phone], handler);
         conn.end();
     };
+    Contact.getPhones = function (handler, data) {
+        var conn = DBConnection_1.DBConnection.createConnection();
+        var sqlQ = 'SELECT * FROM phones WHERE contact_id = ?';
+        conn.connect();
+        conn.query(sqlQ, [data.contact_id], handler);
+        conn.end();
+    };
     return Contact;
 }());
 exports.Contact = Contact;
