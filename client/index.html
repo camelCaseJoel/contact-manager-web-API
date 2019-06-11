@@ -76,7 +76,27 @@ ul#contacts li {
 <!-- =========================== JavaScript =========================== -->
 <!-- ================================================================== -->
 <script >
+// ------------------------ functions
+function delContact (id) {
+    fetch('http://localhost:3000/api/contact', {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            id: id    
+        })
+    }).then((r)=>{
+        console.log(r);
+        document.getElementById('firstname').value = '';
+        document.getElementById('lastname').value = '';
+        document.getElementById('email').value = '';
 
+        location.reload();
+    });
+}
+
+// --------------------- Initial Paint
 fetch('http://localhost:3000/api/contact').then((r)=>{
     console.log('lo que llega inicialmente del server');
     console.log(r);
@@ -90,7 +110,7 @@ fetch('http://localhost:3000/api/contact').then((r)=>{
         let li = document.createElement('li');
         ul.appendChild(li);
 
-        li.innerHTML += `<button class="del">DELETE</button> ${item.firstname} ${item.lastname} - ${item.email} `;
+        li.innerHTML += `<button onclick="delContact(${item.id})" class="del">DELETE</button> ${item.firstname} ${item.lastname} - ${item.email} `;
     });
 });
 
