@@ -2,7 +2,7 @@
 class Config {
     // node app
     public host: string = 'localhost';
-    public port: number = 8000;
+    public port: number = 3000;
     
 
     // database

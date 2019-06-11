@@ -5,7 +5,7 @@ var Config = /** @class */ (function () {
     function Config() {
         // node app
         this.host = 'localhost';
-        this.port = 8000;
+        this.port = 3000;
         // database
         this.dbHost = 'localhost';
         this.dbName = 'contacts_app';
