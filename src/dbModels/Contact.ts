@@ -29,11 +29,11 @@ class Contact {
         conn.query( sqlQ,[data.contact_id, data.phone], handler );
         conn.end();
     }
-    public static getPhones ( handler, data ) {
+    public static getPhones ( handler ) {
         const conn = DBConnection.createConnection();
-        const sqlQ = 'SELECT * FROM phones WHERE contact_id = ?';
+        const sqlQ = 'SELECT * FROM phones';
         conn.connect();
-        conn.query( sqlQ,[data.contact_id], handler );
+        conn.query( sqlQ, handler );
         conn.end();
     }
     

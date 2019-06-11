@@ -87,14 +87,7 @@ var Handler = /** @class */ (function () {
             res.writeHead(200, { 'Content-Type': 'application/json' });
             res.end(stringResult, 'utf-8');
         };
-        var postBody = '';
-        req.on('data', function (chunk) {
-            postBody += chunk.toString();
-        });
-        req.on('end', function () {
-            var dataObject = JSON.parse(postBody);
-            Contact_1.Contact.getPhones(handler, dataObject);
-        });
+        Contact_1.Contact.getPhones(handler);
     };
     Handler.getUI = function (req, res) {
         var data;

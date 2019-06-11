@@ -114,19 +114,7 @@ class Handler {
             res.end(stringResult, 'utf-8')
             
         };
-
-        let postBody = '';
-        req.on('data', chunk => {
-            postBody += chunk.toString();
-        });
-        req.on('end', () => {
-            let dataObject = JSON.parse( postBody );
-
-            Contact.getPhones( handler, dataObject );
-
-        });
-
-        
+        Contact.getPhones( handler );
     }
 
     static getUI ( req: any, res: any ) {
