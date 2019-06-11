@@ -8,8 +8,8 @@ var Config = /** @class */ (function () {
         // database
         this.dbHost = 'localhost';
         this.dbName = 'contacts_app';
-        this.dbUser = 'root';
-        this.dbPass = 'parapaderapa1982';
+        this.dbUser = 'joel';
+        this.dbPass = 'password';
     }
     return Config;
 }());

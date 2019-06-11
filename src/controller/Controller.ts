@@ -25,7 +25,7 @@ class Controller{
 
         if (handler.match( req, res, {
             verb: 'DELETE',
-            path: '/api/contact'
+            path: '/api/contact' 
         })) handler.deleteContact(req, res);
 
 

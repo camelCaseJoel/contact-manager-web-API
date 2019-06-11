@@ -6,8 +6,8 @@ class Config {
     // database
     public dbHost: string = 'localhost';
     public dbName: string = 'contacts_app';
-    public dbUser: string = 'root';
-    public dbPass: string = 'parapaderapa1982';
+    public dbUser: string = 'joel';
+    public dbPass: string = 'password';
 }
 
 export { Config };
