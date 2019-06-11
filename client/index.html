@@ -8,7 +8,12 @@
 
 <!-- ========= CSS ========= -->
 <style>
+body {
+    background-color: #000033;
+}
+input {color: blue}
 * {
+    color: white;
     box-sizing: border-box;
     font-family: "Courier New", Courier, monospace;
 }
@@ -31,6 +36,7 @@ hr {
 div.form > input {
     border: 1px solid skyblue;
     margin-bottom: 25px;
+    padding-left: 10px;
 }
 div.form > button {
     color: white;
@@ -53,12 +59,85 @@ div.form > button {
     </div>
     <hr />
     <h3>Lista de Contactos:</h3>
-    <ul class="contacts"></ul>
+    <ul id="contacts"></ul>
 </div>
 
 <!-- ========= JavaScript ========= -->
 <script >
+document.getElementById("save").addEventListener("click",() => {
+    // get form info
+    const firstname = document.getElementById('firstname').value;
+    const lastname = document.getElementById('lastname').value;
+    const email = document.getElementById('email').value;
+
+    console.log('----------------before post');
+    console.log(firstname + lastname + email);
+
+    if ( firstname == null || 
+         firstname == "" || 
+         lastname == null || 
+         lastname == "" || 
+         email == null || 
+         email == "" 
+        ) {
+        alert("LLENE TODOS LOS CAMPOS!");
+        return false;
+    }
+    
+    fetch('http://localhost:3000/api/contact', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            firstname: firstname,
+            lastname: lastname,
+            email: email
+        })
+    }).then((r)=>{
+        console.log(r);
+        document.getElementById('firstname').value = '';
+        document.getElementById('lastname').value = '';
+        document.getElementById('email').value = '';
+    });
+});
+
 console.log('qlq tamo aqui');
+
+
+
+// fetch('/', {
+//     method: 'POST',
+//     headers: {
+//         'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify({
+//         user: {
+//             name: "John",
+//             email: "john@example.com"
+//         }
+//     })
+// });
+// -------------------------------------
+var items = [
+        'Blue',
+        'Red',
+        'White',
+        'Green',
+        'Black',
+        'Orange'
+    ];
+
+
+
+const ul = document.getElementById('contacts');
+
+items.forEach(function (item) {
+    let li = document.createElement('li');
+    ul.appendChild(li);
+
+    li.innerHTML += item;
+});
 </script>
 </body>
 </html>
