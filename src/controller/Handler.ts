@@ -77,6 +77,32 @@ class Handler {
         });
     }
 
+
+    static deletePhone ( req: any, res: any ) {
+        const handler = (error, results, fields) => {
+            if (error) throw error;
+            console.log( 'The result is: ', results );
+
+            const stringResult = JSON.stringify( results );
+
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(stringResult, 'utf-8')
+            
+        };
+
+        let postBody = '';
+        req.on('data', chunk => {
+            postBody += chunk.toString();
+        });
+        req.on('end', () => {
+            let dataObject = JSON.parse( postBody );
+
+            Contact.deletePhone( handler, dataObject );
+
+        });
+    }
+
+
     static addPhone ( req: any, res: any ) {
         const handler = (error, results, fields) => {
             if (error) throw error;

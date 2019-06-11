@@ -26,6 +26,11 @@ var Controller = /** @class */ (function () {
         }))
             Handler_1.handler.deleteContact(req, res);
         if (Handler_1.handler.match(req, res, {
+            verb: 'DELETE',
+            path: '/api/phone'
+        }))
+            Handler_1.handler.deletePhone(req, res);
+        if (Handler_1.handler.match(req, res, {
             verb: 'POST',
             path: '/api/phone'
         }))

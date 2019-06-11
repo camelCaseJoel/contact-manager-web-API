@@ -27,6 +27,12 @@ class Controller{
             verb: 'DELETE',
             path: '/api/contact'
         })) handler.deleteContact(req, res);
+
+
+        if (handler.match( req, res, {
+            verb: 'DELETE',
+            path: '/api/phone'
+        })) handler.deletePhone(req, res);
         
 
         if (handler.match( req, res, {

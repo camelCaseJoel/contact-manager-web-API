@@ -25,6 +25,13 @@ var Contact = /** @class */ (function () {
         conn.query(sqlQ, [data.id], handler);
         conn.end();
     };
+    Contact.deletePhone = function (handler, data) {
+        var conn = DBConnection_1.DBConnection.createConnection();
+        var sqlQ = 'DELETE FROM phones WHERE id = ?';
+        conn.connect();
+        conn.query(sqlQ, [data.id], handler);
+        conn.end();
+    };
     Contact.addPhone = function (handler, data) {
         var conn = DBConnection_1.DBConnection.createConnection();
         var sqlQ = 'INSERT INTO phones (contact_id,phone) VALUES(?,?)';

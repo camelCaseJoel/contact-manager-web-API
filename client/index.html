@@ -109,6 +109,24 @@ function delContact (id) {
         location.reload();
     });
 }
+function delPhone (id) {
+    fetch('http://localhost:3000/api/phone', {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            id: id    
+        })
+    }).then((r)=>{
+        console.log(r);
+        document.getElementById('firstname').value = '';
+        document.getElementById('lastname').value = '';
+        document.getElementById('email').value = '';
+
+        location.reload();
+    });
+}
 
 // --------------------- Initial Paint
 // -----------------------------------
