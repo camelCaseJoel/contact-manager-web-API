@@ -143,6 +143,8 @@ fetch('http://localhost:3000/api/contact').then((r)=>{
         console.log(r);
         return r.json();
     }).then(( resp )=>{
+
+
         console.log( resp );
         
         const ul = document.getElementById('contacts');
@@ -191,6 +193,7 @@ document.getElementById("save").addEventListener("click",() => {
             email: email
         })
     }).then((r)=>{
+        location.reload();
         console.log(r);
         document.getElementById('firstname').value = '';
         document.getElementById('lastname').value = '';
