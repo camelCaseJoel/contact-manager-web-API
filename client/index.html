@@ -53,6 +53,9 @@ button.del {
 ul#contacts li {
     margin-bottom: 10px;
 }
+div#id{
+    display: none;
+}
 </style>
 </head>
 <!-- =============================== HTML ============================= -->
@@ -132,7 +135,7 @@ fetch('http://localhost:3000/api/contact').then((r)=>{
         let li = document.createElement('li');
         ul.appendChild(li);
 
-        li.innerHTML += `<button onclick="delContact(${item.id})" class="del">DELETE</button> ${item.firstname} ${item.lastname} - ${item.email} `;
+        li.innerHTML += `<div id="id">${item.id}</div><button onclick="delContact(${item.id})" class="del">DELETE</button> ${item.firstname} ${item.lastname} - ${item.email} `;
     });
 
     return resp;
@@ -143,18 +146,46 @@ fetch('http://localhost:3000/api/contact').then((r)=>{
         console.log(r);
         return r.json();
     }).then(( resp )=>{
+        let phones = resp;
+        // resp -> phones
+        // *********
+        const contacts = document.querySelectorAll('ul#contacts li');
 
+        contacts.forEach(c => {
+            // c => <li> contact
+            let divId = c.querySelectorAll('div#id');
+            console.log('----- contact ');
+            console.log( Number( divId[0].innerHTML ) );
+            c.style.border = '10px solid red';
+            
+            phones.forEach( tel => {
+                console.log('-------------');
+                console.log('id de contacto:');
+                console.log( Number( divId[0].innerHTML ) );
+                console.log( 'tel contact_id: ' + tel.contact_id );
+                console.log('-------------');
 
-        console.log( resp );
-        
-        const ul = document.getElementById('contacts');
+                if ( Number( divId[0].innerHTML ) == tel.contact_id ){
+                    let li = document.createElement('li');
+                    c.appendChild( li );
+                    li.innerHTML = tel.phone;
+                }
+            });
 
-        resp.forEach(function (item) {
-            let li = document.createElement('li');
-            ul.appendChild(li);
-
-            li.innerHTML += `${item.phone} `;
         });
+        // ***end
+
+
+        // console.log( resp );// phones
+        
+        // const ul = document.getElementById('contacts');
+
+        // resp.forEach(function (item) {
+        //     let li = document.createElement('li');
+        //     ul.appendChild(li);
+
+        //     li.innerHTML += `${item.phone} `;
+        // });
     });
 });
 
