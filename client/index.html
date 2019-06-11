@@ -50,8 +50,15 @@ button.del {
     border: 1px solid white;
     padding: 10px;
 }
-ul#contacts li {
+ul#contacts > li {
     margin-bottom: 10px;
+    padding: 20px;
+    border: 1px solid rosybrown;
+}
+ul#contacts li li {
+    position: relative;
+    left: 50px;
+    padding: 5px;
 }
 div#id{
     display: none;
@@ -156,7 +163,7 @@ fetch('http://localhost:3000/api/contact').then((r)=>{
             let divId = c.querySelectorAll('div#id');
             console.log('----- contact ');
             console.log( Number( divId[0].innerHTML ) );
-            c.style.border = '10px solid red';
+            //c.style.border = '10px solid red';
             
             phones.forEach( tel => {
                 console.log('-------------');
