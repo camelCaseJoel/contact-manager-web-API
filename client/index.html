@@ -69,6 +69,7 @@ div#id{
 <!-- ================================================================== -->
 <body>
 <div id="global">
+    <h1>Agregar Contacto: </h1>
     <div class="form">
         <label for="firstname">Nombre:</label>
         <input type="text" id="firstname">
@@ -175,7 +176,7 @@ fetch('http://localhost:3000/api/contact').then((r)=>{
                 if ( Number( divId[0].innerHTML ) == tel.contact_id ){
                     let li = document.createElement('li');
                     c.appendChild( li );
-                    li.innerHTML = tel.phone;
+                    li.innerHTML = `<button onclick="delPhone(${tel.id})" class="del">delete</button> ${tel.phone}`;
                 }
             });
 
