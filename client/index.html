@@ -101,22 +101,22 @@ function delContact (id) {
 
 // --------------------- Initial Paint
 // -----------------------------------
-fetch('http://localhost:3000/api/phone').then((r)=>{
-    console.log('lo que llega inicialmente del server -- PHONES');
-    console.log(r);
-    return r.json();
-}).then(( resp )=>{
-    console.log( resp );
+// fetch('http://localhost:3000/api/phone').then((r)=>{
+//     console.log('lo que llega inicialmente del server -- PHONES');
+//     console.log(r);
+//     return r.json();
+// }).then(( resp )=>{
+//     console.log( resp );
     
-    const ul = document.getElementById('contacts');
+//     const ul = document.getElementById('contacts');
 
-    resp.forEach(function (item) {
-        let li = document.createElement('li');
-        ul.appendChild(li);
+//     resp.forEach(function (item) {
+//         let li = document.createElement('li');
+//         ul.appendChild(li);
 
-        li.innerHTML += `${item.phone} `;
-    });
-});
+//         li.innerHTML += `${item.phone} `;
+//     });
+// });
 
 
 fetch('http://localhost:3000/api/contact').then((r)=>{
@@ -133,6 +133,26 @@ fetch('http://localhost:3000/api/contact').then((r)=>{
         ul.appendChild(li);
 
         li.innerHTML += `<button onclick="delContact(${item.id})" class="del">DELETE</button> ${item.firstname} ${item.lastname} - ${item.email} `;
+    });
+
+    return resp;
+
+}).then((contacts)=>{
+    fetch('http://localhost:3000/api/phone').then((r)=>{
+        console.log('lo que llega inicialmente del server -- PHONES');
+        console.log(r);
+        return r.json();
+    }).then(( resp )=>{
+        console.log( resp );
+        
+        const ul = document.getElementById('contacts');
+
+        resp.forEach(function (item) {
+            let li = document.createElement('li');
+            ul.appendChild(li);
+
+            li.innerHTML += `${item.phone} `;
+        });
     });
 });
 
