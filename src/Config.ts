@@ -1,8 +1,10 @@
+// app config
 class Config {
     // node app
     public host: string = 'localhost';
-    public port: number = 3000;
+    public port: number = 8000;
     
+
     // database
     public dbHost: string = 'localhost';
     public dbName: string = 'contacts_app';
