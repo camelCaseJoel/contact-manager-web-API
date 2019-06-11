@@ -6,7 +6,8 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>atl-contact-manager</title>
 
-<!-- ========= CSS ========= -->
+<!-- =========================== CSS =========================== -->
+<!-- =========================================================== -->
 <style>
 body {
     background-color: #000033;
@@ -44,8 +45,18 @@ div.form > button {
     border: none;
     font-size: 20px;
 }
+button.del {
+    background-color: darkred;
+    border: 1px solid white;
+    padding: 10px;
+}
+ul#contacts li {
+    margin-bottom: 10px;
+}
 </style>
 </head>
+<!-- =============================== HTML ============================= -->
+<!-- ================================================================== -->
 <body>
 <div id="global">
     <div class="form">
@@ -62,8 +73,29 @@ div.form > button {
     <ul id="contacts"></ul>
 </div>
 
-<!-- ========= JavaScript ========= -->
+<!-- =========================== JavaScript =========================== -->
+<!-- ================================================================== -->
 <script >
+
+fetch('http://localhost:3000/api/contact').then((r)=>{
+    console.log('lo que llega inicialmente del server');
+    console.log(r);
+    return r.json();
+}).then(( resp )=>{
+    console.log( resp );
+    
+    const ul = document.getElementById('contacts');
+
+    resp.forEach(function (item) {
+        let li = document.createElement('li');
+        ul.appendChild(li);
+
+        li.innerHTML += `<button class="del">DELETE</button> ${item.firstname} ${item.lastname} - ${item.email} `;
+    });
+});
+
+
+// ------------------- POST save contact
 document.getElementById("save").addEventListener("click",() => {
     // get form info
     const firstname = document.getElementById('firstname').value;
@@ -118,26 +150,12 @@ console.log('qlq tamo aqui');
 //         }
 //     })
 // });
+
+
+
 // -------------------------------------
-var items = [
-        'Blue',
-        'Red',
-        'White',
-        'Green',
-        'Black',
-        'Orange'
-    ];
 
 
-
-const ul = document.getElementById('contacts');
-
-items.forEach(function (item) {
-    let li = document.createElement('li');
-    ul.appendChild(li);
-
-    li.innerHTML += item;
-});
 </script>
 </body>
 </html>
