@@ -1,7 +1,7 @@
 Manejador de Contactos Web-API
 ==============================
 
-Esta es una simple aplicación hecha *desde cero*(sin frameworks) en 2 días(inicialmente) como ejercicio/prueba. Luego fué mejorada y se le dedicó más tiempo.
+Esta es una simple aplicación hecha *desde cero*(sin frameworks) en 2 días(inicialmente) como ejercicio/prueba. Luego será mejorada y se le dedicará más tiempo.
 
 Es un simple Restful API / app de manejo de contactos.
 
