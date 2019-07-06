@@ -1,9 +1,10 @@
 Manejador de Contactos Web-API
 ==============================
 
-Esta es una simple aplicación hecha en 2 días(inicialmente) como ejercicio/prueba. Luego fué mejorada y se le dedicó más tiempo.
+Esta es una simple aplicación hecha *desde cero*(sin frameworks) en 2 días(inicialmente) como ejercicio/prueba. Luego fué mejorada y se le dedicó más tiempo.
 
 Es un simple Restful API / app de manejo de contactos.
+
 
 El API (rutas):
 --------------
@@ -27,8 +28,8 @@ Instrucciones de instalación:
 - configurar archivo Config.js
 - correr comando **npm start**
 
-Aquí está el REST JSON API, desde cero, sin frameworks:
-Cada archivo creado por mí, escrito en TypeScript/Node.js (ver /src/  folder). Ver Commits para más detalles.
+
+Aquí está el REST JSON API, **desde cero**, sin frameworks:
 
 
 https://github.com/camelCaseJoel/contact-manager-web-API
