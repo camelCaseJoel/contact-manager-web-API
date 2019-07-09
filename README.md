@@ -1,9 +1,21 @@
+Mejoras pendientes:
+------------------
+- Minimizar duplicación de código.
+- Implementar patrón **Data Mapper**.
+- Implementar patrón **Domain Model** en la capa de lógica de negocio.
+- Talvez, escribir un cliente nuevo o implementar patrón MVC.
+
+
 Manejador de Contactos Web-API
 ==============================
-
 Esta es una simple aplicación hecha *desde cero*(sin frameworks) en 2 días(inicialmente) como ejercicio/prueba. Luego será mejorada y se le dedicará más tiempo.
 
-Es un simple Restful API / app de manejo de contactos.
+
+**Favor ignorar código del cliente que se encuentra en el directorio /client**
+... fué escrito sólo para fines de prueba de forma muy rápida. Es puro 'spaghetti code'
+
+
+Es un Restful API/app de manejo de contactos.
 
 
 El API (rutas):
@@ -29,20 +41,11 @@ Instrucciones de instalación:
 - correr comando **npm start**
 
 
-Aquí está el REST JSON API, **desde cero**, sin frameworks:
-
-
-https://github.com/camelCaseJoel/contact-manager-web-API
-
-
-Las instrucciones de instalación las pondré en el README.md
------------------------------------------------------------
-
-Características:
-----------------
+Características requeridas:
+---------------------------
 -Arquitectura en capas
 
-**Clases del app(modularización):**
+**AlClases del app(modularización):**
 - Config
 - Server
 - Controller
