@@ -37,7 +37,8 @@ Instrucciones de instalación:
 - Intalar Node & NPM
 - correr comando **npm install** para installar depenencias
 - configurar archivo Config.js
-- correr comando **npm start**
+- transpilar código TypeScript  hacia carpeta **/build**
+- correr comando **npm start**. Esto correrá el código transpilado en **/build**
 
 
 Características requeridas:
